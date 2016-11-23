@@ -1,0 +1,2 @@
+# DC
+divide-and-conquer
