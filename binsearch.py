@@ -21,5 +21,16 @@ def bisect_right(S,x,lo,hi=None):
         if x < S[mid]: hi = mid
         else:lo = mid + 1 #lo=mid 会导致死循环
     return lo
+
+def rec_bisect_right(S,x,lo,hi = None):
+    if hi==None: hi = len(S)
+    if lo < hi:
+        mid = (lo+hi) // 2
+        if x < S[mid]:
+            return rec_bisect_right(S,x,lo,mid)
+        else:
+            return rec_bisect_right(S,x,mid+1,hi)
+    else:
+        return lo
 if __name__=='__main__':
-    print bisect_right(seq,3,0)
+    print rec_bisect_right(seq,3,0)
