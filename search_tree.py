@@ -3,6 +3,10 @@
 "二分搜索树"
 import Node
 
+#插入操作
+#键值已经存在，更新原有的值
+#键值不存在，增加新的节点
+#返回当前节点
 def insert(node,key,val):
     if node is None:return Node(key,val)
     if node.key == key: node.val = val
