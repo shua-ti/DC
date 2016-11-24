@@ -4,11 +4,11 @@
 from search_tree import *
 class Tree:
     root = None
-    def __setitem__(self, key, value):
+    def __setitem__(self, key, val):
         self.root = insert(self.root,key,val)
     def __getitem__(self, key):
         return search(self.root,key)
     def __contains__(self, key):
         try: search(self.root,key)
-        except KeyReeor:return false
-        return true
+        except KeyError:return False
+        return True
