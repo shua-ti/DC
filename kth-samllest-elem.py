@@ -15,21 +15,14 @@ def partition(seq):
 #根据目标 kth 最小的元素，有选择地处理较小的分支
 def selectfun(seq,k):
     lo,pivot,hi = partition(seq)
+    pi = [pivot]
     m = len(lo)
     if m==k: return lo
     elif m < k:
-        return [lo,pivot,selectfun(hi,k-m-1)]
+        return lo+pi+selectfun(hi,k-m-1)
     else:
         return selectfun(lo,k)
-def select(seq,k):
-    res = selectfun(seq,k)
-    li = []
-    def combine(res):
-        for v in res:
-            if isinstance(v,list) :combine(v)
-            else: li.append(v)
-    combine(res)
-    return li
 if __name__=="__main__":
-    print select(seq,1)
+    for i in range(1,7):
+        print selectfun(seq,i)
 
