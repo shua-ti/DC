@@ -7,7 +7,7 @@ seq =[1,2,3,-3,-4,23,45,-34]
 def maxSlice(seq,lo=0,hi=None):
     if hi==None: hi=len(seq)
     mid = (lo+hi)//2
-    if mid-lo >1: gap_left=maxSlice(seq,lo,mid)#区间表示两边都是闭区间
+    if mid-lo >1: gap_left=maxSlice(seq,lo,mid)#区间表示左闭右开
     else:gap_left=(lo,mid)
     if hi-mid >1: gap_right=maxSlice(seq,mid,hi)
     else:gap_right=(mid,hi)
